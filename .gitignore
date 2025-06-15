@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Nix
+result
+.direnv/
+.envrc
+
+# Rust
+target/
+*.so
+
+# Python
+__pycache__/
