@@ -1,0 +1,24 @@
+first-commit-is-empty: true
+summary:
+  first-word-is-simple-verb: true
+  first-word-capitalization: "upper"
+trailers:
+  Commit-type:
+    mandatory: true
+    singular: true
+    values:
+      # keep-sorted start
+      - build
+      - chore
+      - ci
+      - docs
+      - feature
+      - fix
+      - test
+      # keep-sorted end
+  Scope:
+    values:
+      # keep-sorted start
+      - cli
+      - core
+      # keep-sorted end
