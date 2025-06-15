@@ -2,6 +2,7 @@
 name = "gitch"
 version = "0.1.0"
 description = "Structured git commit extraction and checking"
+readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "pip>=25.1.1",
