@@ -1,0 +1,15 @@
+[package]
+name = "gitch"
+version = "0.1.0"
+edition = "2024"
+license = "AGPL-3.0-or-later"
+description = "TODO"
+repository = "https://github.com/noxpardalis/gitch"
+
+[dependencies]
+gix = "0.72.1"
+jiff = "0.2.14"
+pyo3 = "0.25.0"
+
+[lib]
+crate-type = ["cdylib"]
