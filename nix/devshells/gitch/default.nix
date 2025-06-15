@@ -1,6 +1,7 @@
 { pkgs, ... }:
 pkgs.mkShell {
   packages = with pkgs; [
+    uv
     cargo-deny
   ];
 

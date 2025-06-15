@@ -1,0 +1,36 @@
+[project]
+name = "gitch"
+version = "0.1.0"
+description = "Structured git commit extraction and checking"
+requires-python = ">=3.12"
+dependencies = [
+  "pip>=25.1.1",
+  "pydantic>=2.11.5",
+  "pyyaml>=6.0.2",
+  "rich>=14.0.0",
+  "spacy>=3.8.7",
+  "typer>=0.16.0",
+]
+license = "AGPL-3.0-or-later"
+
+[dependency-groups]
+dev = ["licensecheck>=2025.1.0"]
+
+[tool.maturin]
+python-source = "python"
+module-name = "gitch.gitch_core"
+features = ["pyo3/extension-module"]
+
+[tool.uv]
+cache-keys = [
+  { file = "pyproject.toml" },
+  { file = "Cargo.toml" },
+  { file = "**/*.rs" },
+]
+
+[project.scripts]
+gitch = "gitch:main.main"
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
