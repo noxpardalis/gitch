@@ -31,7 +31,7 @@ Copy the following to the configuration file:
 ```yaml
 first-commit-is-empty: true
 summary:
-  first-word-is-verb: true
+  first-word-is-simple-verb: true
   first-word-capitalization: "upper"
 trailers:
   # I see that you like the `<type>[optional scope]: <description>`
