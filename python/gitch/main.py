@@ -8,7 +8,6 @@ The Structured Git Commit Helper.
 
 import json
 import logging
-import multiprocessing
 import os
 import sys
 from enum import Enum
@@ -285,9 +284,7 @@ def check(
             commit_message = f"{commit_prefix} {commit.summary.lower()}"
             summary_batch.append(commit_message)
 
-        for index, commit_nlp in enumerate(
-            nlp.pipe(summary_batch, n_process=multiprocessing.cpu_count())
-        ):
+        for index, commit_nlp in enumerate(nlp.pipe(summary_batch)):
             commit = commits_with_cutoff[index]
             errors = commit_results[commit.id]["errors"]
 
