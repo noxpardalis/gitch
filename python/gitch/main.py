@@ -6,6 +6,7 @@ The Structured Git Commit Helper.
 - Extract information from your Git commits to then generate changelogs, reports, etc...
 """
 
+import contextlib
 import json
 import logging
 import os
@@ -270,13 +271,20 @@ def check(
                     f"  |    help: rerun without '--offline' or manually download the models to '{model_dir}'"
                 )
             else:
-                spacy.cli.download(
-                    spacy_model,
-                    False,
-                    True,
-                    "--target",
-                    f"{model_dir}",
-                )
+                # spaCy writes to stdout in a way that disrupts the TUI from rich so we
+                # redirect this to devnull.
+                with (
+                    Path(os.devnull).open("w") as devnull,
+                    contextlib.redirect_stdout(devnull),
+                ):
+                    spacy.cli.download(
+                        spacy_model,
+                        False,
+                        True,
+                        "--target",
+                        f"{model_dir}",
+                        "--quiet",
+                    )
             nlp = load_spacy_model(model_dir, spacy_model)
 
         summary_batch = []
