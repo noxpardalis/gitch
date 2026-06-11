@@ -334,7 +334,7 @@ impl Repository {
                         continue;
                     } else {
                         // TODO(noxpardalis): what to do if the entry modes are different?
-                        assert_eq!(source_entry_mode, entry_mode);
+                        debug_assert_eq!(source_entry_mode, entry_mode);
 
                         let backing = &mut [0; 6];
                         writeln!(
